@@ -4,24 +4,16 @@ author: "Alexa Andrade"
 format: html
 editor: visual
 link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03 
-excecute:
- warning: false
- message: false
+Excecute: 
 ---
 
 ```{r}
-#Read in packages 
-library(tidyverse)
-library(here)
-library(gt)
+1 + 1
+```
 
-install.packages("flextable")
-library(flextable)
-library(janitor)
-
-install.packages("readxl")
-library(readxl)
-
+```{r}
+# R code here
+summary(mtcars)
 ```
 
 \## Part 2. Problems
@@ -146,12 +138,9 @@ At this point, you have seen and created a lot of figures for this class. Revisi
 
 #### a. Revisit and summarize (6 points)
 
-
-A two-tailed Student’s t-test was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
-
+What are the statistical tests the authors are using to address their main research question? (Note: you have already written about this in homework 2! Find that text and provide it again here!)
 
 Insert the figure or table you described in Homework 2 here.
-
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -195,4 +184,51 @@ What recommendations would you make to make the figure or table better? What wou
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
 :::
 
-## 
+## Double check your assignment!
+
+On Canvas, you will submit two links:
+
+1.  the link to your GitHub repository \*\*(15 points)\*\*
+2.  the link to your rendered html \*\*(15 points)\*\*
+
+Your GitHub repository should:
+
+-   [ ] have an informative README with the following sections filled out: General information, Data and file information, and Rendered output. See the repo you created for workshop 7 for a reference. \*\*(15 points)\*\*
+-   [ ] have separate folders for \`code\` and \`data\` \*\*(15 points)\*\*
+-   [ ] show at least 10 commits/pushes with a descriptive, concise commit message (a few words describing what changes you are committing) \*\*(15 points)\*\*
+
+Your rendered html should:
+
+-   [ ] be organized and readable (for example: no messages, warnings, etc., text is formatted correctly with subscripts or mathematical notation where necessary, text and headers are clearly different) \*\*(8 points)\*\*
+-   [ ] include a floating table of contents (see code from workshop 7 for a reference in Quarto and RMarkdown) \*\*(5 points)\*\*
+
+Additionally, your rendered html should include only the components listed below:
+
+-   [ ] a set up chunk at the top of the document, where you have read in your packages and your data (and you should not have read in any packages or data anywhere else) \*\*(5 points)\*\*
+-   [ ] your name, the title, and the date \*\*(3 points)\*\*
+-   [ ] all code with annotations \*\*(10 points)\*\*
+
+for Problem 1:
+
+-   [ ] written responses for a
+-   [ ] code with annotations and output for b
+-   [ ] written responses for c
+-   [ ] code with annotations and output for d
+
+for Problem 2:
+
+-   [ ] written responses for a
+-   [ ] image for b
+-   [ ] image and/or code with annotations and output for c
+-   [ ] written responses for d
+
+for Problem 3:
+
+-   [ ] written response and image for a
+-   [ ] written response for b
+-   [ ] written response for c
+-   [ ] written response for d
+
+Lastly, check out the \*\*rubric on Canvas\*\* to see the point breakdown in more detail.
+
+\*\*196 total points\*\*
