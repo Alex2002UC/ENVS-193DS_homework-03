@@ -164,21 +164,15 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
   THe authors did a clear job of logically labelling their axis and different control and treatment groups with color. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error bars, with the underlying data points being displayed for visual clarity.
 
 
-
-
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
 :::
 
 #### c. Aesthetic clarity (10 points)
 
-In 1-3 sentences, answer the question that best fits your paper.
 
-If you inserted a figure in Part a: How well did the authors handle "visual clutter"? How would you describe the the data:ink ratio?
+I believe the authors handelled their visual clutter moderately well, as they ensured their were no background lines or grids that weren't actively symbolizing data. However, the data:ink ratio is not as maximized as it could be, with the P-values from the comparisons between the groups being unessessarily underlined and larger than what I think is reasonable, adding more ink to the figure while not adding more information about the data. 
 
-If you inserted a table in Part b: How well did the authors handle "visual clutter"? Is there any bolding/italic text to draw your eye to specific numbers?
-
-If you have neither: Critique another figure or table in the text for aesthetic clarity (and insert a screenshot of that figure/table in your submission).
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
