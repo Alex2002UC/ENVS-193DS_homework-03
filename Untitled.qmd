@@ -28,15 +28,11 @@ library(readxl)
 
 ### Problem 1. Personal data (30 points)
 
-::: callout-note
-Before doing this problem, update your spreadsheet with your new observations. Save your data as a .csv or .xlsx in your \`data\` folder.
-:::
 
 #### a. Data summarizing (5 points)
 
-In 1-2 sentences, describe how you could summarize your data to compare your response variable between categories or groups of your choosing. For example, are you counting observations and comparing counts between groups? Are you taking the mean and comparing means between groups? Are you finding the maximum, minimum, range? Are you adding numbers together?
 
-Be sure to describe \_why\_ comparing between the groups you chose is informative. For example, you might calculate the mean number of steps you take to compare between week days, but what about those weekdays is \_different\_ (e.g. "I could calculate the mean number of steps I took to compare average step count between weekdays because I have more classes on Monday than on any other day of the week, so I think I walk more on Monday.")
+I could take and compare the mean time I spent cooking on school days and non-school days because I tend to more homework and have to attend classes during the week, so I think I would spend more time cookinf during the weekend. 
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -161,7 +157,7 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 
 
-  THe authors did a clear job of logically labelling their axis and different control and treatment groups with color. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error bars, with the underlying data points being displayed for visual clarity.
+  The authors did a clear job of logically labelling their axis and different control and treatment groups with color. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error bars, with the underlying data points being displayed for visual clarity.
 
 
 ::: callout-tip
@@ -182,7 +178,11 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 What recommendations would you make to make the figure or table better? What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.
 
-\*\*Alternatively\*\*, if they did not represent their statistics in a figure, what kind of figure would you recommend to them? Describe the x- and y-axes, with any geometries and aesthetics (colors, etc.). Provide enough explanation such that someone would be able to create the figure you describe in code. Provide explanations/justifications for the figure you would recommend.
+To improve the aesthetic clarity of the figure, I recommend reducing the visual clutter by removing the underlining under the p-values. While I'm sure the underlines we're added to emphasize the p-values, I think that because the p-values are already located in a empty space and the underlines don't convey any statistical information, that removing them would be improve the data:ink ratio of the figure. I also recommend making the font size of the p-values smaller and adding subtle brackets labelling which p-value is for which comparisons between groups would lead to a higher data 
+-making the underlying data slightly transparent 
+
+ To enhance clarity, I would also add subtle connecting lines or brackets that clearly indicate which groups each p-value comparison refers to—this would prevent ambiguity about what is being tested. Finally, I suggest ensuring even spacing between bars and labels, which would improve visual flow and help the viewer focus more directly on the data trends."
+
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
