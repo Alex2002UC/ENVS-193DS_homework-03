@@ -4,31 +4,39 @@ author: "Alexa Andrade"
 format: html
 editor: visual
 link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03 
-Excecute: 
+excecute:
+ warning: false
+ message: false
 ---
 
 ```{r}
-1 + 1
-```
+#Read in packages 
+library(tidyverse)
+library(here)
+library(gt)
 
-```{r}
-# R code here
-summary(mtcars)
+install.packages("flextable")
+library(flextable)
+library(janitor)
+
+install.packages("readxl")
+library(readxl)
+
+library(tidyverse)
+install.packages("here")
+library(here)
+install.packages("readxl")
+library(readxl)
+
 ```
 
 \## Part 2. Problems
 
 ### Problem 1. Personal data (30 points)
 
-::: callout-note
-Before doing this problem, update your spreadsheet with your new observations. Save your data as a .csv or .xlsx in your \`data\` folder.
-:::
-
 #### a. Data summarizing (5 points)
 
-In 1-2 sentences, describe how you could summarize your data to compare your response variable between categories or groups of your choosing. For example, are you counting observations and comparing counts between groups? Are you taking the mean and comparing means between groups? Are you finding the maximum, minimum, range? Are you adding numbers together?
-
-Be sure to describe \_why\_ comparing between the groups you chose is informative. For example, you might calculate the mean number of steps you take to compare between week days, but what about those weekdays is \_different\_ (e.g. "I could calculate the mean number of steps I took to compare average step count between weekdays because I have more classes on Monday than on any other day of the week, so I think I walk more on Monday.")
+I could take and compare the mean time I spent cooking on school days and non-school days because I tend to more homework and have to attend classes during the week, so I think I would spend more time cookinf during the weekend.
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -40,7 +48,70 @@ Using the summary you described in part a, \*\*create a visualization of your da
 
 Use colors in your figure (that are not the default ggplot settings).
 
-Make sure your axis labels are full, readable text (not just your column names).
+Make sure your axis labels are full, readable text (not just your column names)
+
+```{r}
+
+Cooking_clean <- read_xlsx(here("Data", "Cooking_time.xlsx")) |> 
+clean_names()
+
+#Creating a summary 
+Cooking_summary <- Cooking_clean |> 
+  group_by(school_day) |> 
+  summarise(
+    mean = mean(minutes_spent_cooking_min),        # Calculate mean moss height
+    n = n(),                              # Count number of observations
+    sd = sd(minutes_spent_cooking_min),            # Calculate standard deviation
+    se = sd / sqrt(n),                   # Calculate standard error
+    ci_lower = mean - qt(0.975, df = n - 1) * se,  # 95% CI lower bound
+    ci_upper = mean + qt(0.975, df = n - 1) * se   # 95% CI upper bound
+  ) |>
+  mutate(
+    across(c(mean, sd, se, ci_lower, ci_upper), ~round(.x, 1))  # Round values
+  ) |>
+  select(school_day, mean, sd, se, ci_lower, ci_upper)  # Select final columns
+
+
+
+
+
+
+
+
+
+
+
+
+ggplot(data = Cooking, aes(x = school_day, y = minutes_spent_cooking_min, color = school_day)) +
+  geom_jitter(width = 0.2, height = 0, alpha = 0.6, shape = 21) +  # Adds raw data points with jitter
+  
+  geom_errorbar(data = Cooking_summary, 
+                aes(x = school_day, ymin = mean - se, ymax = mean + se),
+                width = 0.2,
+                inherit.aes = FALSE,
+                color = "black") +  # Error bars for mean ± SE
+  geom_point(data = Cooking_summary, 
+             aes(x = school_day, y = mean),
+             inherit.aes = FALSE,
+             color = "red", 
+             size = 3) +  # Mean points
+  labs(x = "Status of Day", 
+       y = "Average Time Spent Cooking", 
+       title = "Mean time spent cooking During the Week",
+       subtitle = "Alexa Andrade") +
+  
+scale_x_discrete(labels = c("N" = "Non-School Day", "Y" = "School Day")) +
+  scale_color_manual(values = c("Y" = "steelblue", "N" = "darkorange")) +
+  theme_light(base_size = 16) +
+  theme(panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", color = NA),
+        plot.background = element_rect(fill = "white", color = NA),
+        legend.position = "none")
+
+```
+
+
+
 
 ::: callout-note
 See \[From Data to Viz\](https://www.data-to-viz.com/) for new ideas for visualization.
@@ -61,7 +132,20 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 #### d. Table presentation (10 points)
 
 Using \`gt\` or \`flextable\`, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
+```{r}
+Tussocks_summary |>
+gt() |> #Creating a Table from the data
+cols_label( # Renaming columns so it's easier to read
+site = "Site",
+mean = "Mean",
+sd = "Standard deviation",
+se = "Standard error",
+ci_lower = "95% CI lower",
+ci_upper = "95% CI upper") |>
+tab_header(
+title = "Summary statistics of average moss height by site")
 
+```
 Display the output.
 
 ::: callout-tip
@@ -138,7 +222,7 @@ At this point, you have seen and created a lot of figures for this class. Revisi
 
 #### a. Revisit and summarize (6 points)
 
-What are the statistical tests the authors are using to address their main research question? (Note: you have already written about this in homework 2! Find that text and provide it again here!)
+A two-tailed Student’s t-test and a two-way mixed AVOLVA was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
 
 Insert the figure or table you described in Homework 2 here.
 
@@ -148,13 +232,7 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 #### b. Visual clarity (10 points)
 
-In 1-3 sentences, answer the question that best fits your paper.
-
-If you inserted a figure in Part a: How clearly did the authors \_visually\_ represent their statistics in figures? For example, are the x- and y-axes in a logical position? Do they show summary statistics (means and SE, for example) and/or model predictions, and if so, do they show the underlying data?
-
-If you inserted a table in Part b: How clearly does the table represent the data underlying tests?
-
-If you have neither: Critique another figure or table in the text for visual clarity (and insert a screenshot of that figure/table in your submission).
+The authors did a clear job of logically labelling their axis and different control and treatment groups with color. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error bars, with the underlying data points being displayed for visual clarity.
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -162,13 +240,7 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 #### c. Aesthetic clarity (10 points)
 
-In 1-3 sentences, answer the question that best fits your paper.
-
-If you inserted a figure in Part a: How well did the authors handle "visual clutter"? How would you describe the the data:ink ratio?
-
-If you inserted a table in Part b: How well did the authors handle "visual clutter"? Is there any bolding/italic text to draw your eye to specific numbers?
-
-If you have neither: Critique another figure or table in the text for aesthetic clarity (and insert a screenshot of that figure/table in your submission).
+I believe the authors handelled their visual clutter moderately well, as they ensured their were no background lines or grids that weren't actively symbolizing data. However, the data:ink ratio is not as maximized as it could be, with the P-values from the comparisons between the groups being unessessarily underlined and larger than what I think is reasonable, adding more ink to the figure while not adding more information about the data.
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -178,57 +250,12 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 What recommendations would you make to make the figure or table better? What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.
 
-\*\*Alternatively\*\*, if they did not represent their statistics in a figure, what kind of figure would you recommend to them? Describe the x- and y-axes, with any geometries and aesthetics (colors, etc.). Provide enough explanation such that someone would be able to create the figure you describe in code. Provide explanations/justifications for the figure you would recommend.
+To improve the aesthetic clarity of the figure, I recommend reducing the visual clutter by removing the underlining under the p-values. While I'm sure the underlines we're added to emphasize the p-values, I think that because the p-values are already located in a empty space and the underlines don't convey any statistical information, that removing them would be improve the data:ink ratio of the figure. I also recommend making the font size of the p-values smaller and adding subtle brackets labelling which p-value is for which comparisons between groups would lead to a higher data -making the underlying data slightly transparent
+
+To enhance clarity, I would also add subtle connecting lines or brackets that clearly indicate which groups each p-value comparison refers to—this would prevent ambiguity about what is being tested. Finally, I suggest ensuring even spacing between bars and labels, which would improve visual flow and help the viewer focus more directly on the data trends."
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
 :::
 
-## Double check your assignment!
-
-On Canvas, you will submit two links:
-
-1.  the link to your GitHub repository \*\*(15 points)\*\*
-2.  the link to your rendered html \*\*(15 points)\*\*
-
-Your GitHub repository should:
-
--   [ ] have an informative README with the following sections filled out: General information, Data and file information, and Rendered output. See the repo you created for workshop 7 for a reference. \*\*(15 points)\*\*
--   [ ] have separate folders for \`code\` and \`data\` \*\*(15 points)\*\*
--   [ ] show at least 10 commits/pushes with a descriptive, concise commit message (a few words describing what changes you are committing) \*\*(15 points)\*\*
-
-Your rendered html should:
-
--   [ ] be organized and readable (for example: no messages, warnings, etc., text is formatted correctly with subscripts or mathematical notation where necessary, text and headers are clearly different) \*\*(8 points)\*\*
--   [ ] include a floating table of contents (see code from workshop 7 for a reference in Quarto and RMarkdown) \*\*(5 points)\*\*
-
-Additionally, your rendered html should include only the components listed below:
-
--   [ ] a set up chunk at the top of the document, where you have read in your packages and your data (and you should not have read in any packages or data anywhere else) \*\*(5 points)\*\*
--   [ ] your name, the title, and the date \*\*(3 points)\*\*
--   [ ] all code with annotations \*\*(10 points)\*\*
-
-for Problem 1:
-
--   [ ] written responses for a
--   [ ] code with annotations and output for b
--   [ ] written responses for c
--   [ ] code with annotations and output for d
-
-for Problem 2:
-
--   [ ] written responses for a
--   [ ] image for b
--   [ ] image and/or code with annotations and output for c
--   [ ] written responses for d
-
-for Problem 3:
-
--   [ ] written response and image for a
--   [ ] written response for b
--   [ ] written response for c
--   [ ] written response for d
-
-Lastly, check out the \*\*rubric on Canvas\*\* to see the point breakdown in more detail.
-
-\*\*196 total points\*\*
+## 
