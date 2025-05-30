@@ -127,17 +127,29 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 Using \`gt\` or \`flextable\`, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
 ```{r}
+library(dplyr)
+
+Cooking_summary <- Cooking_summary |> #Renaming the categories in school_day column 
+  mutate(school_day = recode(school_day,
+                             "N" = "Non-School Day",
+                             "Y" = "School Day"))
+
+library(flextable)
+
 Cooking_summary |>
-gt() |> #Creating a Table from the data
-cols_label( # Renaming columns so it's easier to read
-school_day = "Status of Day",
-mean = "Mean",
-sd = "Standard deviation",
-se = "Standard error",
-ci_lower = "95% CI lower",
-ci_upper = "95% CI upper") |>
-tab_header(
-title = "Summary statistics of average moss height by site")
+  flextable() |>
+  set_header_labels(
+    school_day = "Status of Day",
+    mean = "Mean",
+    sd = "Standard Deviation",
+    se = "Standard Error",
+    ci_lower = "95% CI Lower",
+    ci_upper = "95% CI Upper"
+  ) |>
+  set_caption("Summary Statistics of Cooking Time by School Day") |>
+  autofit()
+
+
 
 ```
 
