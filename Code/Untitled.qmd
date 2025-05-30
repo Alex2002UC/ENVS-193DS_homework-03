@@ -28,6 +28,8 @@ library(tidyverse)
 library(here)
 #install.packages("readxl")
 library(readxl)
+library(dplyr)
+library(flextable)
 
 ```
 
@@ -45,15 +47,9 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 #### b. Visualization (10 points)
 
-Using the summary you described in part a, \*\*create a visualization of your data comparing your summarized response variable between groups\*\*. If you are calculating a mean or median, show the underlying data in addition to your summary.
-
-Use colors in your figure (that are not the default ggplot settings).
-
-Make sure your axis labels are full, readable text (not just your column names)
-
 ```{r}
 
-Cooking_clean <- read_xlsx(here("Data", "Cooking_time.xlsx")) |> 
+Cooking_clean <- read_xlsx(here("Data", "Cooking_timeF.xlsx")) |> 
 clean_names()
 
 #Creating a summary 
@@ -127,14 +123,11 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 Using \`gt\` or \`flextable\`, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
 ```{r}
-library(dplyr)
 
 Cooking_summary <- Cooking_summary |> #Renaming the categories in school_day column 
   mutate(school_day = recode(school_day,
                              "N" = "Non-School Day",
                              "Y" = "School Day"))
-
-library(flextable)
 
 Cooking_summary |>
   flextable() |>
@@ -163,18 +156,11 @@ Double check that your rendered document looks the way you would expect (e.g. ta
 
 ### Problem 2. Affective visualization (24 points)
 
-In this problem, you will create an \*\*affective visualization\*\* using your personal data in preparation for workshops during weeks 9 and 10.
 
-In lecture, we talked about the three vertices of data visualization: 1) exploratory, 2) affective, and 3) communicative. We've done a lot of exploratory and communicative visualization, but have yet to think about affective visualization.
 
-When thinking of affective visualization, you can expand your ideas of what data visualization \_could\_ be. Some examples of affective visualizations include:
+#### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points) 
 
--   \[Jill Pelto's paintings\](https://www.jillpelto.com/gallery-1)
--   \[Lorraine Woodruff-Long's warming strips quilt \](https://www.instagram.com/p/C689Kybxget/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==)
--   \[Stefanie Posavec and Giorgia Lupi's Dear Data project\](https://www.dear-data.com/all)
--   \[Environmental Graphiti\](https://www.environmentalgraphiti.org/series-folder)
-
-#### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points)
+For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do multiple line graphs. I could have the dates serve as the x-axis of my visualization, and have three overall line trends that represent cooking time on school days, non-school days, and also the amount of ingredients used on each day. I want to set up the backround of my visualization to be a kitchen setting, and I want the peak of the line graphs to be lined up with different shelves that hold different cooking appliances. For the amount of ingredients used trendline, I instead want to line up the peaks and dips to be next to different ingredients. 
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -231,7 +217,11 @@ At this point, you have seen and created a lot of figures for this class. Revisi
 
 A two-tailed Student’s t-test and a two-way mixed AVOLVA was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
 
-Insert the figure or table you described in Homework 2 here.
+
+
+## Figure: Axon Density and Regeneration
+
+![Axon density and regeneration](Axon_density.png)
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
