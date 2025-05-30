@@ -15,17 +15,18 @@ library(tidyverse)
 library(here)
 library(gt)
 
-install.packages("flextable")
+#install.packages("flextable")
 library(flextable)
 library(janitor)
 
-install.packages("readxl")
+
+#install.packages("readxl")
 library(readxl)
 
 library(tidyverse)
-install.packages("here")
+#install.packages("here")
 library(here)
-install.packages("readxl")
+#install.packages("readxl")
 library(readxl)
 
 ```
@@ -70,20 +71,12 @@ Cooking_summary <- Cooking_clean |>
     across(c(mean, sd, se, ci_lower, ci_upper), ~round(.x, 1))  # Round values
   ) |>
   select(school_day, mean, sd, se, ci_lower, ci_upper)  # Select final columns
+```
 
-
-
-
-
-
-
-
-
-
-
-
-ggplot(data = Cooking, aes(x = school_day, y = minutes_spent_cooking_min, color = school_day)) +
-  geom_jitter(width = 0.2, height = 0, alpha = 0.6, shape = 21) +  # Adds raw data points with jitter
+```{r}
+ggplot(data = Cooking_clean, aes(x = school_day, y = minutes_spent_cooking_min, color = school_day)) +
+  geom_jitter(width = 0.2, height = 0, alpha = 0.6, shape = 21, 
+              aes(fill = school_day), color = "black") +  # Adds raw data points with jitter
   
   geom_errorbar(data = Cooking_summary, 
                 aes(x = school_day, ymin = mean - se, ymax = mean + se),
@@ -93,25 +86,22 @@ ggplot(data = Cooking, aes(x = school_day, y = minutes_spent_cooking_min, color 
   geom_point(data = Cooking_summary, 
              aes(x = school_day, y = mean),
              inherit.aes = FALSE,
-             color = "red", 
+             color = "black", 
              size = 3) +  # Mean points
   labs(x = "Status of Day", 
-       y = "Average Time Spent Cooking", 
+       y = "Average Time Spent Cooking(min)", 
        title = "Mean time spent cooking During the Week",
        subtitle = "Alexa Andrade") +
   
 scale_x_discrete(labels = c("N" = "Non-School Day", "Y" = "School Day")) +
-  scale_color_manual(values = c("Y" = "steelblue", "N" = "darkorange")) +
+  scale_color_manual(values = c("Y" = "steelblue", "N" = "red")) +
   theme_light(base_size = 16) +
   theme(panel.grid = element_blank(),
-        panel.background = element_rect(fill = "white", color = NA),
+        panel.background = element_rect(fill = "white",color = NA),
         plot.background = element_rect(fill = "white", color = NA),
         legend.position = "none")
 
 ```
-
-
-
 
 ::: callout-note
 See \[From Data to Viz\](https://www.data-to-viz.com/) for new ideas for visualization.
@@ -132,6 +122,7 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 #### d. Table presentation (10 points)
 
 Using \`gt\` or \`flextable\`, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
+
 ```{r}
 Tussocks_summary |>
 gt() |> #Creating a Table from the data
@@ -146,6 +137,7 @@ tab_header(
 title = "Summary statistics of average moss height by site")
 
 ```
+
 Display the output.
 
 ::: callout-tip
