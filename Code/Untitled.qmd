@@ -113,7 +113,10 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 #### c. Caption (5 points)
 
-Write a \_caption\_ for your figure.
+**Figure 1. Average time spent cooking(min) tends to be higher on School Days.** Data collected personally by Alexa Andrade. The points represent observations of daily time spent cooking(min) and are
+differentiated by whether the observations were taken on school(n=24) or
+non-school(n=10) days(total n=34). Colors represent the status of the day(red = non-school day, blue = school day). The graph represents the comparison between mean time spent cooking on different types of days, 
+represented by the large black point, ± standard error(SE) bar whiskers between school days and non-school days.]
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -124,10 +127,10 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 Using \`gt\` or \`flextable\`, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
 ```{r}
-Tussocks_summary |>
+Cooking_summary |>
 gt() |> #Creating a Table from the data
 cols_label( # Renaming columns so it's easier to read
-site = "Site",
+school_day = "Status of Day",
 mean = "Mean",
 sd = "Standard deviation",
 se = "Standard error",
