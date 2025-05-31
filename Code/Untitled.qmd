@@ -181,11 +181,7 @@ Double check your rendered URL to make sure the photo of your sketch shows up.
 
 #### c. Make a draft of your visualization. (12 points)
 
-Feel free to be creative with this! \_You do not have to do this in R.\_ You could create a sculpture, painting, textile object, etc.
-
-If you are making your visualization in R, show the annotated code and the output.
-
-If you are making your visualization outside of R, include a photo of your visualization in your submission.
+![Draft of Visualization](Draft.png)
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
