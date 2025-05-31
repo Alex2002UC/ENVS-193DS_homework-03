@@ -160,7 +160,9 @@ Double check that your rendered document looks the way you would expect (e.g. ta
 
 #### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points) 
 
-For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do multiple line graphs. I could have the dates serve as the x-axis of my visualization, and have three overall line trends that represent cooking time on school days, non-school days, and also the amount of ingredients used on each day. I want to set up the backround of my visualization to be a kitchen setting, and I want the peak of the line graphs to be lined up with different shelves that hold different cooking appliances. For the amount of ingredients used trendline, I instead want to line up the peaks and dips to be next to different ingredients. 
+For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be nect to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent ccoking there. 
+
+ 
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -168,7 +170,8 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 #### b. Create a sketch (on paper) of your idea. (2 points)
 
-Include a photo of this sketch in your submission.
+![Rough Sketch of Visualization](Sketch.png)
+
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
