@@ -150,13 +150,6 @@ For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" da
 
 I chose to display the overall variables of my data collection in a scenic and symbolic way to give viewers an overall general understanding that the goal of my data was to observe how much time I spend in the kitchen. The bowls next to the kitchen appliances are filled in varying levels to represent how much time I would have to dedicate to cooking if I was using that specific appliance. The shelves are each filled with a different number of ingredients that would go into certain meals,and are accompanied by either a small, medium, or large spoon, which represent the degree of dirty dishes that would come with cooking that meal. I was heavily influenced by Jill Pelto's art, especially because all of her pieces seem like scenic art unitl the viewer takes the time to look at the details. Even then, Jill does not place a heavy emphasis on simply portraying the data, but focuses more on how that data can be contextualized using the scene around it. I decided to create my affective visualization using colored pencils, after sketching it out initially with pencil, because it allowed me to fully customize the visualization however I needed. I used colored pencils to display ow the variables I measured were: Minutes Spent Cooking, Number of dishes Dirtied, and Number of ingredients used. I started data collection approximetly half way through Spring quarter, looked at the overall outcomes of my data, and then drew and colored this affective visualization to communicate the theme of my data and its outcome. 
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
-
-::: {.callout-note title="This is prep for workshop during week 9!"}
-During week 9, we will send time providing peer review for your affective visualization. If you turn in your homework next Wednesday, you will have a draft of your affective visualization that is ready for peer review.
-:::
 
 ### Problem 3. Statistical critique (36 points)
 
@@ -166,42 +159,29 @@ At this point, you have seen and created a lot of figures for this class. Revisi
 
 #### a. Revisit and summarize (6 points)
 
-A two-tailed Student’s t-test and a two-way mixed AVOLVA was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
+A two-tailed Student’s t-test was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss. 
 
 ## Figure: Axon Density and Regeneration
 
 ![Axon density and regeneration](Axon_density.png)
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
+
 
 #### b. Visual clarity (10 points)
 
-The authors did a clear job of logically labelling their axis and different control and treatment groups with color. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error bars, with the underlying data points being displayed for visual clarity.
+The authors did a clear job of logically labeling their axis and different control and treatment groups with color and logically, even including a legend to bring clarity of the different treatments. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error of the mean bars, with the underlying data points being displayed for visual clarity.
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
 
 #### c. Aesthetic clarity (10 points)
 
-I believe the authors handelled their visual clutter moderately well, as they ensured their were no background lines or grids that weren't actively symbolizing data. However, the data:ink ratio is not as maximized as it could be, with the P-values from the comparisons between the groups being unessessarily underlined and larger than what I think is reasonable, adding more ink to the figure while not adding more information about the data.
+I believe the authors handeled their visual clutter moderately well, as they ensured there were no background lines or grids that weren't actively symbolizing data. However, the data:ink ratio is not as maximized as it could be, with the P-values from the comparisons between the groups being unnecessarily underlined and larger than what I think is reasonable, adding more ink to the figure while not adding more information about the data.
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
 
 #### d. Recommendations (can be longer than 4 sentences, 10 points)
 
-What recommendations would you make to make the figure or table better? What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.
-
-To improve the aesthetic clarity of the figure, I recommend reducing the visual clutter by removing the underlining under the p-values. While I'm sure the underlines we're added to emphasize the p-values, I think that because the p-values are already located in a empty space and the underlines don't convey any statistical information, that removing them would be improve the data:ink ratio of the figure. I also recommend making the font size of the p-values smaller and adding subtle brackets labelling which p-value is for which comparisons between groups would lead to a higher data -making the underlying data slightly transparent
-
-To enhance clarity, I would also add subtle connecting lines or brackets that clearly indicate which groups each p-value comparison refers to—this would prevent ambiguity about what is being tested. Finally, I suggest ensuring even spacing between bars and labels, which would improve visual flow and help the viewer focus more directly on the data trends."
+To improve the aesthetic clarity of the figure, I recommend reducing the visual clutter by removing the underlining under the p-values. While I'm sure the underlines we're added to emphasize the p-values, I think that because the p-values are already located in a empty space and the underlines don't convey any statistical information, that removing them would be improve the data:ink ratio of the figure. I also recommend making the font size of the p-values smaller and adding subtle brackets labeling between the columns, so that it's more understandable on which p-values are for which group comparisons. All of this would lead to higher visual clarity and prevent ambiguity about what is being tested. 
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
 :::
 
-## 
