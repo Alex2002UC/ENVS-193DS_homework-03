@@ -23,7 +23,7 @@ library(readxl)
 library(dplyr)
 library(flextable)
 
-options(warn = -1)
+options(warn = -1) #Gets rid of all warning messages 
 
 
 ```
@@ -107,7 +107,7 @@ scale_x_discrete(labels = c("N" = "Non-School Day", "Y" = "School Day")) + #Rena
 #### d. Table presentation (10 points)
 
 
-```{r}
+```{r Table}
 
 Cooking_summary <- Cooking_summary |> 
   mutate(school_day = recode(school_day, #Renaming the categories in school_day column 
@@ -126,8 +126,6 @@ Cooking_summary |>
   set_caption("Summary Statistics of Cooking Time by School Day") |> #Adding a title to the table 
   autofit() #Adjusts column widths to fit content 
 
-
-
 ```
 
 
@@ -136,40 +134,21 @@ Cooking_summary |>
 
 #### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points)
 
-For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be nect to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent ccoking there.
+For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be next to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent cooking using that appliance.
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
 
 #### b. Create a sketch (on paper) of your idea. (2 points)
 
 ![Rough Sketch of Visualization](Sketch.png)
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-
-Double check your rendered URL to make sure the photo of your sketch shows up.
-:::
 
 #### c. Make a draft of your visualization. (12 points)
 
 ![Draft of Visualization](Draft.png)
 
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-
-If you are including a photo, double check your rendered URL to make sure the photo of your draft shows up.
-:::
-
 #### d. Write an artist statement. (8 points)
 
-An artist statement gives the audience context to understand your work. For each of the following points, write 1-2 sentences to address:
-
--   the content of your piece (what are you showing?)
--   the influences (what did techniques/artists/etc. did you find influential in creating your work?)
--   the form of your work (written code, watercolor, oil painting, etc.)
--   your process (how did you create your work?)
+I chose to display the overall variables of my data collection in a scenic and symbolic way to give viewers an overall general understanding that the goal of my data was to observe how much time I spend in the kitchen. The bowls next to the kitchen appliances are filled in varying levels to represent how much time I would have to dedicate to cooking if I was using that specific appliance. The shelves are each filled with a different number of ingredients that would go into certain meals,and are accompanied by either a small, medium, or large spoon, which represent the degree of dirty dishes that would come with cooking that meal. I was heavily influenced by Jill Pelto's art, especially because all of her pieces seem like scenic art unitl the viewer takes the time to look at the details. Even then, Jill does not place a heavy emphasis on simply portraying the data, but focuses more on how that data can be contextualized using the scene around it. I decided to create my affective visualization using colored pencils, after sketching it out initially with pencil, because it allowed me to fully customize the visualization however I needed. I used colored pencils to display ow the variables I measured were: Minutes Spent Cooking, Number of dishes Dirtied, and Number of ingredients used. I started data collection approximetly half way through Spring quarter, looked at the overall outcomes of my data, and then drew and colored this affective visualization to communicate the theme of my data and its outcome. 
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
