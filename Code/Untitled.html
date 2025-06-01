@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexa Andrade">
+<meta name="dcterms.date" content="2025-06-01">
 
 <title>HW-3</title>
 <style>
@@ -74,10 +75,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#problem-1.-personal-data-30-points" id="toc-problem-1.-personal-data-30-points" class="nav-link active" data-scroll-target="#problem-1.-personal-data-30-points">Problem 1. Personal data (30 points)</a></li>
+  <li><a href="#problem-2.-affective-visualization-24-points" id="toc-problem-2.-affective-visualization-24-points" class="nav-link" data-scroll-target="#problem-2.-affective-visualization-24-points">Problem 2. Affective visualization (24 points)</a></li>
+  <li><a href="#problem-3.-statistical-critique-36-points" id="toc-problem-3.-statistical-critique-36-points" class="nav-link" data-scroll-target="#problem-3.-statistical-critique-36-points">Problem 3. Statistical critique (36 points)</a></li>
+  <li><a href="#figure-axon-density-and-regeneration" id="toc-figure-axon-density-and-regeneration" class="nav-link" data-scroll-target="#figure-axon-density-and-regeneration">Figure: Axon Density and Regeneration</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -96,6 +108,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -148,7 +166,9 @@ The following objects are masked from 'package:stats':
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">warn =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="co">#Gets rid of all warning messages </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>## Part 2. Problems</p>
 <section id="problem-1.-personal-data-30-points" class="level3">
@@ -156,19 +176,6 @@ The following objects are masked from 'package:stats':
 <section id="a.-data-summarizing-5-points" class="level4">
 <h4 class="anchored" data-anchor-id="a.-data-summarizing-5-points">a. Data summarizing (5 points)</h4>
 <p>I could take and compare the mean time I spent cooking on school days and non-school days because I tend to more homework and have to attend classes during the week, so I think I would spend more time cooking during the weekend.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
 </section>
 <section id="b.-visualization-10-points" class="level4">
 <h4 class="anchored" data-anchor-id="b.-visualization-10-points">b. Visualization (10 points)</h4>
@@ -194,7 +201,7 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Cooking_clean, <span class="fu">aes</span>(<span class="at">x =</span> school_day, <span class="at">y =</span> minutes_spent_cooking_min, <span class="at">color =</span> school_day)) <span class="sc">+</span> <span class="co">#Setting up data for plotting</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">shape =</span> <span class="dv">21</span>, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">fill =</span> school_day), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Adds raw data points with jitter plot, shows the underlying data </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">fill =</span> school_day, <span class="at">color =</span> <span class="st">"black"</span>)) <span class="sc">+</span>  <span class="co"># Adds raw data points with jitter plot, shows the underlying data </span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> Cooking_summary, <span class="co">#Adds error bars determined by SE</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> school_day, <span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se),</span>
@@ -212,19 +219,17 @@ Tip
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Time Spent Cooking(min)"</span>, </span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Mean time spent cooking During the Week"</span>,</span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Alexa Andrade"</span>) <span class="sc">+</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-School Day"</span>, <span class="st">"Y"</span> <span class="ot">=</span> <span class="st">"School Day"</span>)) <span class="sc">+</span> <span class="co">#Renaming the x-axis </span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Y"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"N"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#manually changing the colors of non-school and school categories</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> <span class="co">#Changes base theme and also makes it have larger font </span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="co">#Customizing the background, removing gridlines </span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>,<span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co">#Hides the legend </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
-data's colour values.</code></pre>
-</div>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-School Day"</span>, <span class="st">"Y"</span> <span class="ot">=</span> <span class="st">"School Day"</span>)) <span class="sc">+</span> <span class="co">#Renaming the x-axis </span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"School Day"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Non-School Day"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#manually changing the colors of non-school and school categories</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> <span class="co">#Changes base theme and also makes it have larger font </span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="co">#Customizing the background, removing gridlines </span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>,<span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co">#Hides the legend </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -241,24 +246,24 @@ data's colour values.</code></pre>
 <section id="d.-table-presentation-10-points" class="level4">
 <h4 class="anchored" data-anchor-id="d.-table-presentation-10-points">d.&nbsp;Table presentation (10 points)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Cooking_summary <span class="ot">&lt;-</span> Cooking_summary <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school_day =</span> <span class="fu">recode</span>(school_day, <span class="co">#Renaming the categories in school_day column </span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-School Day"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"Y"</span> <span class="ot">=</span> <span class="st">"School Day"</span>))</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>Cooking_summary <span class="sc">|&gt;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">|&gt;</span> <span class="co">#Creating a summary statistics table </span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_header_labels</span>( <span class="co">#Renaming column headers for display</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">school_day =</span> <span class="st">"Status of Day"</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"Mean"</span>,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="st">"Standard Deviation"</span>,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="st">"Standard Error"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_lower =</span> <span class="st">"95% CI Lower"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_upper =</span> <span class="st">"95% CI Upper"</span> ) <span class="sc">|&gt;</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_caption</span>(<span class="st">"Summary Statistics of Cooking Time by School Day"</span>) <span class="sc">|&gt;</span> <span class="co">#Adding a title to the table </span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autofit</span>() <span class="co">#Adjusts column widths to fit content </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Cooking_summary <span class="ot">&lt;-</span> Cooking_summary <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school_day =</span> <span class="fu">recode</span>(school_day, <span class="co">#Renaming the categories in school_day column </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"N"</span> <span class="ot">=</span> <span class="st">"Non-School Day"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"Y"</span> <span class="ot">=</span> <span class="st">"School Day"</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>Cooking_summary <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">|&gt;</span> <span class="co">#Creating a summary statistics table </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_header_labels</span>( <span class="co">#Renaming column headers for display</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">school_day =</span> <span class="st">"Status of Day"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="st">"Mean"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="st">"Standard Deviation"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="st">"Standard Error"</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_lower =</span> <span class="st">"95% CI Lower"</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_upper =</span> <span class="st">"95% CI Upper"</span> ) <span class="sc">|&gt;</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_caption</span>(<span class="st">"Summary Statistics of Cooking Time by School Day"</span>) <span class="sc">|&gt;</span> <span class="co">#Adding a title to the table </span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">autofit</span>() <span class="co">#Adjusts column widths to fit content </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-a73e0410{}.cl-a73558d8{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a738f858{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a738f86c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a7391c0c{width:1.398in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c16{width:0.667in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c20{width:1.585in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c2a{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c34{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c3e{width:1.398in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c3f{width:0.667in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c48{width:1.585in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c52{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c53{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c5c{width:1.398in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c66{width:0.667in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c67{width:1.585in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c70{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a7391c71{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a73e0410"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a7391c0c"><p class="cl-a738f858"><span class="cl-a73558d8">Status of Day</span></p></th><th class="cl-a7391c16"><p class="cl-a738f86c"><span class="cl-a73558d8">Mean</span></p></th><th class="cl-a7391c20"><p class="cl-a738f86c"><span class="cl-a73558d8">Standard Deviation</span></p></th><th class="cl-a7391c2a"><p class="cl-a738f86c"><span class="cl-a73558d8">Standard Error</span></p></th><th class="cl-a7391c34"><p class="cl-a738f86c"><span class="cl-a73558d8">95% CI Lower</span></p></th><th class="cl-a7391c34"><p class="cl-a738f86c"><span class="cl-a73558d8">95% CI Upper</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a7391c3e"><p class="cl-a738f858"><span class="cl-a73558d8">Non-School Day</span></p></td><td class="cl-a7391c3f"><p class="cl-a738f86c"><span class="cl-a73558d8">24.8</span></p></td><td class="cl-a7391c48"><p class="cl-a738f86c"><span class="cl-a73558d8">26.6</span></p></td><td class="cl-a7391c52"><p class="cl-a738f86c"><span class="cl-a73558d8">8.4</span></p></td><td class="cl-a7391c53"><p class="cl-a738f86c"><span class="cl-a73558d8">5.8</span></p></td><td class="cl-a7391c53"><p class="cl-a738f86c"><span class="cl-a73558d8">43.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a7391c5c"><p class="cl-a738f858"><span class="cl-a73558d8">School Day</span></p></td><td class="cl-a7391c66"><p class="cl-a738f86c"><span class="cl-a73558d8">31.8</span></p></td><td class="cl-a7391c67"><p class="cl-a738f86c"><span class="cl-a73558d8">22.4</span></p></td><td class="cl-a7391c70"><p class="cl-a738f86c"><span class="cl-a73558d8">4.7</span></p></td><td class="cl-a7391c71"><p class="cl-a738f86c"><span class="cl-a73558d8">22.1</span></p></td><td class="cl-a7391c71"><p class="cl-a738f86c"><span class="cl-a73558d8">41.5</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-f2708278{}.cl-f2678966{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f26b5154{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f26b5168{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f26b77d8{width:1.398in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b77e2{width:0.667in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b77ec{width:1.585in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b77f6{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b77f7{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7800{width:1.398in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7801{width:0.667in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b780a{width:1.585in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7814{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7815{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7828{width:1.398in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7829{width:0.667in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7832{width:1.585in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b7833{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f26b783c{width:1.245in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f2708278"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f26b77d8"><p class="cl-f26b5154"><span class="cl-f2678966">Status of Day</span></p></th><th class="cl-f26b77e2"><p class="cl-f26b5168"><span class="cl-f2678966">Mean</span></p></th><th class="cl-f26b77ec"><p class="cl-f26b5168"><span class="cl-f2678966">Standard Deviation</span></p></th><th class="cl-f26b77f6"><p class="cl-f26b5168"><span class="cl-f2678966">Standard Error</span></p></th><th class="cl-f26b77f7"><p class="cl-f26b5168"><span class="cl-f2678966">95% CI Lower</span></p></th><th class="cl-f26b77f7"><p class="cl-f26b5168"><span class="cl-f2678966">95% CI Upper</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f26b7800"><p class="cl-f26b5154"><span class="cl-f2678966">Non-School Day</span></p></td><td class="cl-f26b7801"><p class="cl-f26b5168"><span class="cl-f2678966">24.8</span></p></td><td class="cl-f26b780a"><p class="cl-f26b5168"><span class="cl-f2678966">26.6</span></p></td><td class="cl-f26b7814"><p class="cl-f26b5168"><span class="cl-f2678966">8.4</span></p></td><td class="cl-f26b7815"><p class="cl-f26b5168"><span class="cl-f2678966">5.8</span></p></td><td class="cl-f26b7815"><p class="cl-f26b5168"><span class="cl-f2678966">43.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f26b7828"><p class="cl-f26b5154"><span class="cl-f2678966">School Day</span></p></td><td class="cl-f26b7829"><p class="cl-f26b5168"><span class="cl-f2678966">31.8</span></p></td><td class="cl-f26b7832"><p class="cl-f26b5168"><span class="cl-f2678966">22.4</span></p></td><td class="cl-f26b7833"><p class="cl-f26b5168"><span class="cl-f2678966">4.7</span></p></td><td class="cl-f26b783c"><p class="cl-f26b5168"><span class="cl-f2678966">22.1</span></p></td><td class="cl-f26b783c"><p class="cl-f26b5168"><span class="cl-f2678966">41.5</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 </section>
@@ -267,20 +272,7 @@ data's colour values.</code></pre>
 <h3 class="anchored" data-anchor-id="problem-2.-affective-visualization-24-points">Problem 2. Affective visualization (24 points)</h3>
 <section id="a.-describe-in-words-what-an-affective-visualization-could-look-like-for-your-personal-data-3-5-sentences.-2-points" class="level4">
 <h4 class="anchored" data-anchor-id="a.-describe-in-words-what-an-affective-visualization-could-look-like-for-your-personal-data-3-5-sentences.-2-points">a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points)</h4>
-<p>For my personal data I was inspired by Jill Pelto’s “Seabirds of Seal Island” data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be nect to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent ccoking there.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
+<p>For my personal data I was inspired by Jill Pelto’s “Seabirds of Seal Island” data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be next to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent cooking using that appliance.</p>
 </section>
 <section id="b.-create-a-sketch-on-paper-of-your-idea.-2-points" class="level4">
 <h4 class="anchored" data-anchor-id="b.-create-a-sketch-on-paper-of-your-idea.-2-points">b. Create a sketch (on paper) of your idea. (2 points)</h4>
@@ -289,20 +281,6 @@ Tip
 <p><img src="Sketch.png" class="img-fluid figure-img"></p>
 <figcaption>Rough Sketch of Visualization</figcaption>
 </figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-<p>Double check your rendered URL to make sure the photo of your sketch shows up.</p>
-</div>
 </div>
 </section>
 <section id="c.-make-a-draft-of-your-visualization.-12-points" class="level4">
@@ -313,65 +291,17 @@ Tip
 <figcaption>Draft of Visualization</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-<p>If you are including a photo, double check your rendered URL to make sure the photo of your draft shows up.</p>
-</div>
-</div>
 </section>
 <section id="d.-write-an-artist-statement.-8-points" class="level4">
 <h4 class="anchored" data-anchor-id="d.-write-an-artist-statement.-8-points">d.&nbsp;Write an artist statement. (8 points)</h4>
-<p>An artist statement gives the audience context to understand your work. For each of the following points, write 1-2 sentences to address:</p>
-<ul>
-<li>the content of your piece (what are you showing?)</li>
-<li>the influences (what did techniques/artists/etc. did you find influential in creating your work?)</li>
-<li>the form of your work (written code, watercolor, oil painting, etc.)</li>
-<li>your process (how did you create your work?)</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="This is prep for workshop during week 9!">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-This is prep for workshop during week 9!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>During week 9, we will send time providing peer review for your affective visualization. If you turn in your homework next Wednesday, you will have a draft of your affective visualization that is ready for peer review.</p>
-</div>
-</div>
+<p>I chose to display the overall variables of my data collection in a scenic and symbolic way to give viewers an overall general understanding that the goal of my data was to observe how much time I spend in the kitchen. The bowls next to the kitchen appliances are filled in varying levels to represent how much time I would have to dedicate to cooking if I was using that specific appliance. The shelves are each filled with a different number of ingredients that would go into certain meals,and are accompanied by either a small, medium, or large spoon, which represent the degree of dirty dishes that would come with cooking that meal. I was heavily influenced by Jill Pelto’s art, especially because all of her pieces seem like scenic art unitl the viewer takes the time to look at the details. Even then, Jill does not place a heavy emphasis on simply portraying the data, but focuses more on how that data can be contextualized using the scene around it. I decided to create my affective visualization using colored pencils, after sketching it out initially with pencil, because it allowed me to fully customize the visualization however I needed. I used colored pencils to display ow the variables I measured were: Minutes Spent Cooking, Number of dishes Dirtied, and Number of ingredients used. I started data collection approximetly half way through Spring quarter, looked at the overall outcomes of my data, and then drew and colored this affective visualization to communicate the theme of my data and its outcome.</p>
 </section>
 </section>
 <section id="problem-3.-statistical-critique-36-points" class="level3">
 <h3 class="anchored" data-anchor-id="problem-3.-statistical-critique-36-points">Problem 3. Statistical critique (36 points)</h3>
-<p>At this point, you have seen and created a lot of figures for this class. Revisit the paper you chose for your critique and your homework 2, where you described figures or tables in the text. Address the following in full sentences (3-4 sentences each).</p>
-<p>**For this section of your homework, you will be evaluated on the logic, conciseness, and nuance of your critique.**</p>
 <section id="a.-revisit-and-summarize-6-points" class="level4">
 <h4 class="anchored" data-anchor-id="a.-revisit-and-summarize-6-points">a. Revisit and summarize (6 points)</h4>
-<p>A two-tailed Student’s t-test and a two-way mixed AVOLVA was conducted to answer the author’s main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.</p>
+<p>A two-tailed Student’s t-test was conducted to answer the author’s main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.</p>
 </section>
 </section>
 <section id="figure-axon-density-and-regeneration" class="level2">
@@ -382,75 +312,18 @@ This is prep for workshop during week 9!
 <figcaption>Axon density and regeneration</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
 <section id="b.-visual-clarity-10-points" class="level4">
 <h4 class="anchored" data-anchor-id="b.-visual-clarity-10-points">b. Visual clarity (10 points)</h4>
-<p>The authors did a clear job of logically labelling their axis and different control and treatment groups with color. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error bars, with the underlying data points being displayed for visual clarity.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
+<p>The authors did a clear job of logically labeling their axis and different control and treatment groups with color and logically, even including a legend to bring clarity of the different treatments. However, the positioning of the p-values above the graph makes it unclear which p-value is for which comparison. The figure does show mean with Standard error of the mean bars, with the underlying data points being displayed for visual clarity.</p>
 </section>
 <section id="c.-aesthetic-clarity-10-points" class="level4">
 <h4 class="anchored" data-anchor-id="c.-aesthetic-clarity-10-points">c.&nbsp;Aesthetic clarity (10 points)</h4>
-<p>I believe the authors handelled their visual clutter moderately well, as they ensured their were no background lines or grids that weren’t actively symbolizing data. However, the data:ink ratio is not as maximized as it could be, with the P-values from the comparisons between the groups being unessessarily underlined and larger than what I think is reasonable, adding more ink to the figure while not adding more information about the data.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
+<p>I believe the authors handeled their visual clutter moderately well, as they ensured there were no background lines or grids that weren’t actively symbolizing data. However, the data:ink ratio is not as maximized as it could be, with the P-values from the comparisons between the groups being unnecessarily underlined and larger than what I think is reasonable, adding more ink to the figure while not adding more information about the data.</p>
 </section>
 <section id="d.-recommendations-can-be-longer-than-4-sentences-10-points" class="level4">
 <h4 class="anchored" data-anchor-id="d.-recommendations-can-be-longer-than-4-sentences-10-points">d.&nbsp;Recommendations (can be longer than 4 sentences, 10 points)</h4>
-<p>What recommendations would you make to make the figure or table better? What would you take out, add, or change? Provide explanations/justifications for each of your recommendations.</p>
-<p>To improve the aesthetic clarity of the figure, I recommend reducing the visual clutter by removing the underlining under the p-values. While I’m sure the underlines we’re added to emphasize the p-values, I think that because the p-values are already located in a empty space and the underlines don’t convey any statistical information, that removing them would be improve the data:ink ratio of the figure. I also recommend making the font size of the p-values smaller and adding subtle brackets labelling which p-value is for which comparisons between groups would lead to a higher data -making the underlying data slightly transparent</p>
-<p>To enhance clarity, I would also add subtle connecting lines or brackets that clearly indicate which groups each p-value comparison refers to—this would prevent ambiguity about what is being tested. Finally, I suggest ensuring even spacing between bars and labels, which would improve visual flow and help the viewer focus more directly on the data trends.”</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Try committing and pushing your changes here! Write an _informative_ commit message.</p>
-</div>
-</div>
+<p>To improve the aesthetic clarity of the figure, I recommend reducing the visual clutter by removing the underlining under the p-values. While I’m sure the underlines we’re added to emphasize the p-values, I think that because the p-values are already located in a empty space and the underlines don’t convey any statistical information, that removing them would be improve the data:ink ratio of the figure. I also recommend making the font size of the p-values smaller and adding subtle brackets labeling between the columns, so that it’s more understandable on which p-values are for which group comparisons. All of this would lead to higher visual clarity and prevent ambiguity about what is being tested.</p>
 </section>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
 </section>
 
 </main>
