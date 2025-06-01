@@ -10,26 +10,21 @@ excecute:
 ---
 
 ```{r}
-#Read in packages 
+#Reading in all the packages 
 library(tidyverse)
 library(here)
 library(gt)
-
-#install.packages("flextable")
 library(flextable)
 library(janitor)
-
-
-#install.packages("readxl")
 library(readxl)
-
 library(tidyverse)
-#install.packages("here")
 library(here)
-#install.packages("readxl")
 library(readxl)
 library(dplyr)
 library(flextable)
+
+options(warn = -1)
+
 
 ```
 
@@ -39,7 +34,7 @@ library(flextable)
 
 #### a. Data summarizing (5 points)
 
-I could take and compare the mean time I spent cooking on school days and non-school days because I tend to more homework and have to attend classes during the week, so I think I would spend more time cookinf during the weekend.
+I could take and compare the mean time I spent cooking on school days and non-school days because I tend to more homework and have to attend classes during the week, so I think I would spend more time cooking during the weekend.
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -47,16 +42,15 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 
 #### b. Visualization (10 points)
 
-```{r}
+```{r Caclulating Summary Statistics}
 
-Cooking_clean <- read_xlsx(here("Data", "Cooking_timeF.xlsx")) |> 
-clean_names()
+Cooking_clean <- read_xlsx(here("Data", "Cooking_timeF.xlsx")) |> #Reading in my data and putting it into a new object name
+clean_names() #Running the function clean_names to standarize my column names
 
-#Creating a summary 
-Cooking_summary <- Cooking_clean |> 
-  group_by(school_day) |> 
+Cooking_summary <- Cooking_clean |> #Creating a summary object
+  group_by(school_day) |>  #grouping the statistics by Y or N for school day
   summarise(
-    mean = mean(minutes_spent_cooking_min),        # Calculate mean moss height
+    mean = mean(minutes_spent_cooking_min),        # Calculate mean time spent cooking
     n = n(),                              # Count number of observations
     sd = sd(minutes_spent_cooking_min),            # Calculate standard deviation
     se = sd / sqrt(n),                   # Calculate standard error
@@ -64,105 +58,85 @@ Cooking_summary <- Cooking_clean |>
     ci_upper = mean + qt(0.975, df = n - 1) * se   # 95% CI upper bound
   ) |>
   mutate(
-    across(c(mean, sd, se, ci_lower, ci_upper), ~round(.x, 1))  # Round values
+    across(c(mean, sd, se, ci_lower, ci_upper), ~round(.x, 1))  # Round values to first decimal point 
   ) |>
-  select(school_day, mean, sd, se, ci_lower, ci_upper)  # Select final columns
+  select(school_day, mean, sd, se, ci_lower, ci_upper)  # Select final columns I want shown 
 ```
 
-```{r}
-ggplot(data = Cooking_clean, aes(x = school_day, y = minutes_spent_cooking_min, color = school_day)) +
+```{r Visualizing Data}
+
+ggplot(data = Cooking_clean, aes(x = school_day, y = minutes_spent_cooking_min, color = school_day)) + #Setting up data for plotting
   geom_jitter(width = 0.2, height = 0, alpha = 0.6, shape = 21, 
-              aes(fill = school_day), color = "black") +  # Adds raw data points with jitter
+              aes(fill = school_day, color = "black")) +  # Adds raw data points with jitter plot, shows the underlying data 
   
-  geom_errorbar(data = Cooking_summary, 
+  geom_errorbar(data = Cooking_summary, #Adds error bars determined by SE
                 aes(x = school_day, ymin = mean - se, ymax = mean + se),
-                width = 0.2,
+                width = 0.2, #width of error bars
                 inherit.aes = FALSE,
-                color = "black") +  # Error bars for mean ± SE
-  geom_point(data = Cooking_summary, 
+                color = "black") +  # Error bars for mean ± SE, colored black
+  
+  geom_point(data = Cooking_summary, #Adds mean points on top of the error bars 
              aes(x = school_day, y = mean),
              inherit.aes = FALSE,
              color = "black", 
-             size = 3) +  # Mean points
-  labs(x = "Status of Day", 
+             size = 3) +  # Size of the mean points
+  
+  labs(x = "Status of Day",  #Adding Axis labels and subtitle
        y = "Average Time Spent Cooking(min)", 
        title = "Mean time spent cooking During the Week",
        subtitle = "Alexa Andrade") +
   
-scale_x_discrete(labels = c("N" = "Non-School Day", "Y" = "School Day")) +
-  scale_color_manual(values = c("Y" = "steelblue", "N" = "red")) +
-  theme_light(base_size = 16) +
-  theme(panel.grid = element_blank(),
+scale_x_discrete(labels = c("N" = "Non-School Day", "Y" = "School Day")) + #Renaming the x-axis 
+  scale_color_manual(values = c("School Day" = "steelblue", "Non-School Day" = "red")) + #manually changing the colors of non-school and school categories
+    
+    
+    
+  theme_light(base_size = 16) + #Changes base theme and also makes it have larger font 
+  theme(panel.grid = element_blank(), #Customizing the background, removing gridlines 
         panel.background = element_rect(fill = "white",color = NA),
         plot.background = element_rect(fill = "white", color = NA),
-        legend.position = "none")
+        legend.position = "none") #Hides the legend 
 
 ```
 
-::: callout-note
-See \[From Data to Viz\](https://www.data-to-viz.com/) for new ideas for visualization.
-:::
-
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
 
 #### c. Caption (5 points)
 
-**Figure 1. Average time spent cooking(min) tends to be higher on School Days.** Data collected personally by Alexa Andrade. The points represent observations of daily time spent cooking(min) and are
-differentiated by whether the observations were taken on school(n=24) or
-non-school(n=10) days(total n=34). Colors represent the status of the day(red = non-school day, blue = school day). The graph represents the comparison between mean time spent cooking on different types of days, 
-represented by the large black point, ± standard error(SE) bar whiskers between school days and non-school days.]
-
-::: callout-tip
-Try committing and pushing your changes here! Write an \_informative\_ commit message.
-:::
+**Figure 1. Average time spent cooking(min) tends to be higher on School Days.** Data collected personally by Alexa Andrade. The points represent observations of daily time spent cooking(min) and are differentiated by whether the observations were taken on school(n=24) or non-school(n=10) days(total n=34). Colors represent the status of the day(red = non-school day, blue = school day). The graph represents the comparison between mean time spent cooking on different types of days, represented by the large black point, ± standard error(SE) bar whiskers between school days and non-school days.
 
 #### d. Table presentation (10 points)
 
-Using \`gt\` or \`flextable\`, create a table with the same data summary that you describe in part a and visualized in part b. For example, if you described and visualized means, make a table with means. If you need to, round any numbers to one decimal point.
 
 ```{r}
 
-Cooking_summary <- Cooking_summary |> #Renaming the categories in school_day column 
-  mutate(school_day = recode(school_day,
+Cooking_summary <- Cooking_summary |> 
+  mutate(school_day = recode(school_day, #Renaming the categories in school_day column 
                              "N" = "Non-School Day",
                              "Y" = "School Day"))
 
 Cooking_summary |>
-  flextable() |>
-  set_header_labels(
+  flextable() |> #Creating a summary statistics table 
+  set_header_labels( #Renaming column headers for display
     school_day = "Status of Day",
     mean = "Mean",
     sd = "Standard Deviation",
     se = "Standard Error",
     ci_lower = "95% CI Lower",
-    ci_upper = "95% CI Upper"
-  ) |>
-  set_caption("Summary Statistics of Cooking Time by School Day") |>
-  autofit()
+    ci_upper = "95% CI Upper" ) |>
+  set_caption("Summary Statistics of Cooking Time by School Day") |> #Adding a title to the table 
+  autofit() #Adjusts column widths to fit content 
 
 
 
 ```
 
-Display the output.
 
-::: callout-tip
-Try \_rendering\_ your document here! Commit and push your changes, then find the url to your rendered output (if you get stuck, see the video on Canvas and/or the Git/GitHub basics page under the "Resources" tab).
-
-Double check that your rendered document looks the way you would expect (e.g. tables all correct, text is formatted correctly). If not, go back and fix any issues or ask for help.
-:::
 
 ### Problem 2. Affective visualization (24 points)
 
+#### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points)
 
-
-#### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences). (2 points) 
-
-For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be nect to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent ccoking there. 
-
- 
+For my personal data I was inspired by Jill Pelto's "Seabirds of Seal Island" data visualization, so I also want to do a scenic affective visualization. I want to have the setting be a kitchen, and have two different countertops that represent two different approaches to preparing food for the day, one where their is a microwave and airfryer, and the other where there is a stove with cooking appliances. Between the two stoves, there is going to be shelves that are filled with a different number of ingredients and a differently sized spoon next to them to symbolize the proportion of dirty dishes used. Each cooking appliance on the stoves will be nect to or hold a bowl that is varying degrees of filled, representing the amount of time that would typically be spent ccoking there.
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -171,7 +145,6 @@ Try committing and pushing your changes here! Write an \_informative\_ commit me
 #### b. Create a sketch (on paper) of your idea. (2 points)
 
 ![Rough Sketch of Visualization](Sketch.png)
-
 
 ::: callout-tip
 Try committing and pushing your changes here! Write an \_informative\_ commit message.
@@ -215,8 +188,6 @@ At this point, you have seen and created a lot of figures for this class. Revisi
 #### a. Revisit and summarize (6 points)
 
 A two-tailed Student’s t-test and a two-way mixed AVOLVA was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
-
-
 
 ## Figure: Axon Density and Regeneration
 
