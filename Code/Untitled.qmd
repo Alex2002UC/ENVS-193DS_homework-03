@@ -10,6 +10,8 @@ excecute:
  message: false
 ---
 
+### link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03
+
 ```{r}
 #Reading in all the packages 
 library(tidyverse)
@@ -29,7 +31,8 @@ options(warn = -1) #Gets rid of all warning messages
 
 
 ```
-##link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03 
+
+
 
 \## Part 2. Problems
 
@@ -151,7 +154,7 @@ A two-tailed Student’s t-test was conducted to answer the author's main resear
 
 ### Figure: Axon Density and Regeneration
 
-![Axon density and regeneration](Axon_density.png) 
+![Axon density and regeneration](Axon_density.png)
 
 #### b. Visual clarity (10 points)
 
