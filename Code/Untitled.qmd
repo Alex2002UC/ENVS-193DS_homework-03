@@ -2,6 +2,7 @@
 title: "HW-3"
 author: "Alexa Andrade"
 date: 06-01-25
+link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03
 format: html
 toc: true
 editor: visual
@@ -10,7 +11,7 @@ excecute:
  message: false
 ---
 
-### link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03
+#### link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03
 
 ```{r}
 #Reading in all the packages 
@@ -31,8 +32,6 @@ options(warn = -1) #Gets rid of all warning messages
 
 
 ```
-
-
 
 \## Part 2. Problems
 
