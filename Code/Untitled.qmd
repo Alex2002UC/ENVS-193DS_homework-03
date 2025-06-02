@@ -5,7 +5,6 @@ date: 06-01-25
 format: html
 toc: true
 editor: visual
-link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03 
 excecute:
  warning: false
  message: false
@@ -27,25 +26,10 @@ library(flextable)
 
 options(warn = -1) #Gets rid of all warning messages 
 
-print_tree <- function(path = ".", prefix = "") {
-  files <- list.files(path, full.names = TRUE)
-  for (i in seq_along(files)) {
-    file <- files[i]
-    is_last <- i == length(files)
-    connector <- if (is_last) "└── " else "├── "
-    cat(prefix, connector, basename(file), "\n", sep = "")
-    if (dir.exists(file)) {
-      new_prefix <- paste0(prefix, if (is_last) "    " else "│   ")
-      print_tree(file, new_prefix)
-    }
-  }
-}
-
-# Run it in your Quarto/R Markdown
-print_tree(".")
 
 
 ```
+##link to github repositroy: https://github.com/Alex2002UC/ENVS-193DS_homework-03 
 
 \## Part 2. Problems
 
