@@ -27,6 +27,24 @@ library(flextable)
 
 options(warn = -1) #Gets rid of all warning messages 
 
+print_tree <- function(path = ".", prefix = "") {
+  files <- list.files(path, full.names = TRUE)
+  for (i in seq_along(files)) {
+    file <- files[i]
+    is_last <- i == length(files)
+    connector <- if (is_last) "└── " else "├── "
+    cat(prefix, connector, basename(file), "\n", sep = "")
+    if (dir.exists(file)) {
+      new_prefix <- paste0(prefix, if (is_last) "    " else "│   ")
+      print_tree(file, new_prefix)
+    }
+  }
+}
+
+# Run it in your Quarto/R Markdown
+print_tree(".")
+
+
 ```
 
 \## Part 2. Problems
@@ -145,7 +163,7 @@ I chose to display the overall variables of my data collection in a scenic and s
 
 #### a. Revisit and summarize (6 points)
 
-A two-tailed Student’s t-test was conducted to answer the author's main research question: : Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
+A two-tailed Student’s t-test was conducted to answer the author's main research question: Could mammalian cells retain a faithful copy of epigenetic information from earlier in life, which could serve as a guide in reversing aging? The response variable was axon regeneration and axon density, while the predictor variable was drug treatment of intravitreal injection of Adeno-Associated-Viruses that delivered OSK genes into the mice.The two-tailed student t-test was used to compare axon density and retinal ganglion counts between OSK gene-treated groups, so a significant result of a p-value less than 0.05 would mean that the OSK treatment led to reliable regeneration of axon density, supporting the paper’s hypothesis that epigenetic reprogramming can help reverse vision loss.
 
 ### Figure: Axon Density and Regeneration
 

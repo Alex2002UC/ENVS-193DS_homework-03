@@ -1,5 +1,5 @@
 # ENVS-193DS_homework-03
-This is for my HW #3 assignment in 193DS class at UCSB. 
+
 
 ## General Information 
 This repository is for Homework assighnment #3, which was assighned in ENVS 193DS. Alex2002UC is the creator and contributor of this repository. The data used is Alexa's personal data that she collected throughout spring quarter of 2025. Using her personal data, Alexa answered her research question: Is the average time I spend cooking my meals higher on school days, or on non-school days? Therefore a Jitterplot displaying mean with SE bars was created from the data analysis. Additionally, this repository includes the process of developing my affective visualization for my data, and a statistical critique of another paper's figure. That paper is here: https://www.nature.com/articles/s41586-020-2975-4 
